@@ -1,0 +1,169 @@
+/* Existing CSS is great, adding styles for flash messages below */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- ADDED STYLES FOR FLASH MESSAGES --- */
+.flashes {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.flashes li {
+    padding: 0.8rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.flashes .success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flashes .danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.flashes .warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+/* --- END OF ADDED STYLES --- */
+
+
+.container {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    width: 380px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(46, 125, 50, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.form-group { margin-bottom: 1.5rem; }
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #388e3c;
+    font-size: 0.9rem;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #c8e6c9;
+    border-radius: 10px;
+    outline: none;
+    background: #f1f8e9;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #66bb6a;
+    box-shadow: 0 0 0 3px rgba(102, 187, 106, 0.2);
+}
+
+.show-password {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.show-password input[type="checkbox"] {
+    margin-right: 0.5rem;
+    accent-color: #4caf50;
+}
+
+.checkbox-label {
+    cursor: pointer;
+    font-weight: 400;
+}
+
+button {
+    width: 100%;
+    padding: 0.9rem;
+    background: linear-gradient(to right, #4caf50, #66bb6a);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+.toggle-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #1b5e20;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.toggle-link:hover { text-decoration: underline; }
+.hidden { display: none; }
+
+/* The animations (tree, leaves) are fine and remain unchanged */
+.forest-container { position: fixed; bottom: 0; left: 0; width: 100%; height: 250px; z-index: 0; }
+.tree-wrapper { position: absolute; bottom: 0; width: 200px; height: 240px; }
+.growing-tree .trunk, .growing-tree .branches path { transition: all 0.6s ease-in-out; }
+.growing-tree .trunk { transform-origin: bottom center; transform: scaleY(0); }
+.growing-tree .branches path { stroke-dasharray: 200; stroke-dashoffset: 200; }
+.tree-container { position: fixed; bottom: -40px; left: 50%; transform: translateX(-50%); width: 250px; height: 300px; z-index: 0; }
+.leaves-background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0; }
+.leaves-background div { position: absolute; display: block; bottom: -150px; animation: leaves-animation 25s linear infinite; font-size: 2rem; }
+.leaves-background div:nth-child(1) { left: 25%; animation-delay: 0s; }
+.leaves-background div:nth-child(2) { left: 10%; animation-delay: 2s; animation-duration: 12s; }
+.leaves-background div:nth-child(3) { left: 70%; animation-delay: 4s; }
+.leaves-background div:nth-child(4) { left: 40%; animation-delay: 0s; animation-duration: 18s; }
+.leaves-background div:nth-child(5) { left: 65%; animation-delay: 3s; }
+.leaves-background div:nth-child(6) { left: 85%; animation-delay: 7s; animation-duration: 15s; }
+@keyframes leaves-animation { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(-120vh) rotate(720deg); opacity: 0; } }
