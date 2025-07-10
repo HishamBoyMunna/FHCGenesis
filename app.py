@@ -9,7 +9,7 @@ load_dotenv() # take environment variables from .env.
 
 import google.generativeai as genai
 
-GEMINI_API_KEY = "AIzaSyDoz-tQxOcoJJgbf0i85-1hxtvK42IOgDc"
+GEMINI_API_KEY = ""
 if not GEMINI_API_KEY:
     print("Warning: GEMINI_API_KEY environment variable not set. Gemini API calls will fail.")
 
